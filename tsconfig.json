@@ -18,10 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
   "include": [
     "src",
+    "commands",
     "src/tests/setupTests.ts",
     "src/tests/App.test.tsx"
   ]
