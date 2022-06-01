@@ -1,0 +1,36 @@
+{
+   "defaultEngine": "google",
+   "searchEngines": {
+      "google": {
+         "title": "Google",
+         "queryUrl": "https://www.google.com/search?q=%query%",
+         "icon": "google"
+      },
+      "duckduckgo": {
+         "title": "DuckDuckGo",
+         "queryUrl": "https://duckduckgo.com/?q=%query%",
+         "icon": "duckduckgo"
+      },
+      "github": {
+         "title": "Github",
+         "icon": "github",
+         "queryUrl": "https://github.com/search?q=%query%"
+      },
+      "reddit": {
+         "title": "Reddit",
+         "queryUrl": "https://www.reddit.com/search?q=%query%",
+         "icon": "reddit"
+      }
+   },
+   "commands": {
+      "hello": {
+         "params": [
+            "name",
+            "repeat?"
+         ],
+         "description": "Say hello to someone!",
+         "validate": "if (!params.name) return false;\n\tif (!params.repeat) params.repeat=\"1\";\nreturn params;",
+         "execute": "params.repeat=parseInt(params.repeat);\nfor(let i=0; i<params.repeat; i++) {alert(`Hello ${params.name}!`);}"
+      }
+   }
+}
