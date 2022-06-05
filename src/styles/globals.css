@@ -9,20 +9,13 @@
 }
 
 html,
-body,
-#root {
+body {
   margin: 0;
   min-height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body {
+  display: grid;
+  place-items: center;
   background: hsl(231, 70%, 98%);
 }

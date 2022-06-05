@@ -10,6 +10,8 @@ export default createCommand('hello', {
    },
 
    async run({ name, repeat }) {
-      console.log(`Hello ${name}!`);
+      for (let i = 0; i < repeat; i++) {
+         console.log(`Hello ${name}!`);
+      }
    }
 });

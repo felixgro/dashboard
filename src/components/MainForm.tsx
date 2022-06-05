@@ -1,6 +1,7 @@
 import type { SearchEngines, Commands } from "../types/settings";
 import { FC, FormEventHandler, useEffect, useRef } from "react";
 import { useState } from "react";
+import SearchEngineSelection from './SearchEngineSelection';
 
 type Props = {
    commands: Commands;
@@ -11,7 +12,7 @@ type Props = {
 const MainInput: FC<Props> = ({ commands, defaultEngine, searchEngines }) => {
    const input = useRef<HTMLInputElement>(null);
    const [query, setQuery] = useState("");
-   const [engine] = useState<any>(searchEngines[defaultEngine]);
+   const [engine, setEngine] = useState<any>(searchEngines[defaultEngine]);
 
    const handleQuerySubmit: FormEventHandler = (evt) => {
       evt.preventDefault();
@@ -81,6 +82,8 @@ const MainInput: FC<Props> = ({ commands, defaultEngine, searchEngines }) => {
       })();
    };
 
+   const [isOpen, setIsOpen] = useState(false);
+
    useEffect(() => {
       if (!input.current) return;
       input.current.focus();
@@ -88,8 +91,13 @@ const MainInput: FC<Props> = ({ commands, defaultEngine, searchEngines }) => {
 
    return (
       <form className="mainForm" onSubmit={handleQuerySubmit}>
-         <button type="button">
-            <img src="./icons/google.svg" alt="Google" height="32" width="32" />
+         <SearchEngineSelection isOpen={isOpen} onSelect={(newEngine) => {
+            setEngine(searchEngines[newEngine]);
+            setIsOpen(false);
+         }} />
+
+         <button type="button" onClick={() => setIsOpen(prev => !prev)}>
+            <img src={engine.icon} alt={engine.title} height="32" width="32" />
          </button>
          <input
             type="text"

@@ -4,22 +4,27 @@
       "google": {
          "title": "Google",
          "queryUrl": "https://www.google.com/search?q=%query%",
-         "icon": "google"
+         "icon": "./icons/google.svg"
       },
       "duckduckgo": {
          "title": "DuckDuckGo",
          "queryUrl": "https://duckduckgo.com/?q=%query%",
-         "icon": "duckduckgo"
+         "icon": "./icons/duckduckgo.svg"
+      },
+      "youtube": {
+         "title": "YouTube",
+         "queryUrl": "https://www.youtube.com/results?search_query=%query%",
+         "icon": "./icons/youtube.svg"
+      },
+      "twitter": {
+         "title": "Twitter",
+         "queryUrl": "https://twitter.com/search?q=%query%",
+         "icon": "./icons/twitter.svg"
       },
       "github": {
          "title": "Github",
-         "icon": "github",
-         "queryUrl": "https://github.com/search?q=%query%"
-      },
-      "reddit": {
-         "title": "Reddit",
-         "queryUrl": "https://www.reddit.com/search?q=%query%",
-         "icon": "reddit"
+         "queryUrl": "https://github.com/search?q=%query%",
+         "icon": "./icons/github.svg"
       }
    },
    "commands": {
