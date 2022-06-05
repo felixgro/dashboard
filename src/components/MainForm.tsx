@@ -89,11 +89,16 @@ const MainInput: FC<Props> = ({ commands, defaultEngine, searchEngines }) => {
       input.current.focus();
    }, []);
 
+   useEffect(() => {
+      if (isOpen) setIsOpen(false);
+   }, [query]);
+
    return (
       <form className="mainForm" onSubmit={handleQuerySubmit}>
          <SearchEngineSelection isOpen={isOpen} onSelect={(newEngine) => {
             setEngine(searchEngines[newEngine]);
             setIsOpen(false);
+            input.current!.focus();
          }} />
 
          <button type="button" onClick={() => setIsOpen(prev => !prev)}>

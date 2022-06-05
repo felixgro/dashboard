@@ -16,20 +16,21 @@ const SearchEngineSelection: FC<Props> = ({ isOpen, onSelect }) => {
    }
 
    useEffect(() => {
-      if (!container.current) return;
-
+      if (!container.current || typeof window === 'undefined') return;
       const buttons = container.current.querySelectorAll('button')!;
 
-      if (isOpen) {
-         const distance = 80;
-         const angleStep = 180 / (buttons.length - 1);
+      const distance = 80;
+      const angleStep = 180 / (buttons.length - 1);
 
+      if (isOpen) {
          for (let i = 0; i < buttons.length; i++) {
             const angle = angleStep * i * Math.PI / 180 + Math.PI / 2;
             // * -1 because of the order the buttons are positioned -> first in markup is on top
             const x = Math.cos(angle * -1) * distance;
             const y = Math.sin(angle * -1) * distance;
             buttons[i].animate([{
+               transform: `translate(0px, 0px)`
+            }, {
                transform: `translate(${x}px, ${y}px)`
             }], {
                duration: 190,
@@ -42,8 +43,17 @@ const SearchEngineSelection: FC<Props> = ({ isOpen, onSelect }) => {
             buttons[i].addEventListener('click', handleSelection);
          }
       } else {
+         if (!buttons[0].hasAttribute('style')) return;
+
          for (let i = 0; i < buttons.length; i++) {
+            const angle = angleStep * i * Math.PI / 180 + Math.PI / 2;
+            // * -1 because of the order the buttons are positioned -> first in markup is on top
+            const x = Math.cos(angle * -1) * distance;
+            const y = Math.sin(angle * -1) * distance;
+
             buttons[i].animate([{
+               transform: `translate(${x}px, ${y}px)`
+            }, {
                transform: `translate(0px, 0px)`
             }], {
                duration: 190,
