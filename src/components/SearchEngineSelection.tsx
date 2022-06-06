@@ -66,6 +66,7 @@ const SearchEngineSelection: FC<Props> = ({ isOpen, onSelect }) => {
             buttons[i].removeEventListener('click', handleSelection);
          }
       }
+      // eslint-disable-next-line
    }, [isOpen]);
 
    return (

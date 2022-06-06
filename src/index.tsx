@@ -1,7 +1,7 @@
 import './styles/globals.css';
 import ReactDOM from 'react-dom/client';
 import { hydrate } from "react-dom";
-import Dashboard from './Dashboard';
+import Dashboard from './views/Dashboard';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -28,7 +28,7 @@
   },
   "include": [
     "src",
-    "commands",
+    "src/commands",
     "src/tests/setupTests.ts",
     "src/tests/App.test.tsx"
   ]
